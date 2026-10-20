@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Junaid AI Video Studio</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#10111b;color:white;font-family:Arial,sans-serif;padding:20px}
+header{text-align:center;padding:25px 0}
+h1{color:#a78bfa}
+p{color:#c5c6d5}
+.card{background:#1c1d2b;padding:20px;border-radius:16px;margin:18px 0}
+label{display:block;margin:14px 0 8px}
+select,textarea,input{width:100%;padding:13px;border-radius:9px;border:1px solid #494a60;background:#11121d;color:white;font-size:16px}
+textarea{min-height:120px;resize:vertical}
+button{width:100%;padding:14px;border:0;border-radius:10px;background:#8b5cf6;color:white;font-size:16px;font-weight:bold;margin-top:14px}
+.note{font-size:13px;line-height:1.6}
+</style>
+</head>
+<body>
+<header>
+<h1>🎬 Junaid AI Studio</h1>
+<p>Your personal AI video creation workspace</p>
+</header>
+<div class="card">
+<h2>✨ Create a Video</h2>
+<label>Video type</label>
+<select id="type">
+<option>Text to Video</option>
+<option>Talking Avatar</option>
+<option>Cartoon Animation</option>
+<option>Gym Vlog</option>
+</select>
+<label>Language</label>
+<select id="lang">
+<option>Hyderabadi Hindi</option>
+<option>Hindi</option>
+<option>Urdu</option>
+<option>English</option>
+<option>Telugu</option>
+</select>
+<label>Describe your video</label>
+<textarea id="prompt" placeholder="Example: A bodybuilder making a funny Hyderabadi gym vlog..."></textarea>
+<button onclick="makePrompt()">Generate Video Prompt</button>
+<div id="result"></div>
+</div>
+<div class="card">
+<h2>🎙️ Voice Script</h2>
+<textarea id="script" placeholder="Apna dialogue yahan likho..."></textarea>
+<button onclick="voice()">Speak Script</button>
+<p class="note">Voice depends on the voices available on your phone.</p>
+</div>
+<div class="card">
+<h2>📌 Important</h2>
+<p class="note">This starter website creates video prompts and can speak scripts using your browser. Actual AI video rendering, talking avatars and lip-sync need a connected AI service or a locally running model. This page does not generate finished AI videos yet.</p>
+</div>
+<script>
+function makePrompt(){
+let p=document.getElementById('prompt').value.trim();
+let t=document.getElementById('type').value;
+let l=document.getElementById('lang').value;
+if(!p){alert('Bhai, pehle video ka idea likh!');return}
+document.getElementById('result').innerHTML='<p><b>Your video prompt:</b></p><textarea id="out"></textarea><button onclick="copyPrompt()">Copy Prompt</button>';
+document.getElementById('out').value=t+'. Language: '+l+'. '+p+'. Clear visuals, natural movement, expressive face, consistent character, vertical 9:16 video.';
+}
+function copyPrompt(){
+let o=document.getElementById('out');o.select();document.execCommand('copy');alert('Prompt copied!');
+}
+function voice(){
+let s=document.getElementById('script').value.trim();
+if(!s){alert('Pehle dialogue likh bhai!');return}
+if(!('speechSynthesis' in window)){alert('Phone browser speech support nahi karta.');return}
+let u=new SpeechSynthesisUtterance(s);
+u.lang='hi-IN';speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>
