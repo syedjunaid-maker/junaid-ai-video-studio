@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101018">
+<title>Junaid AI Video Studio</title>
+<style>
+:root{--bg:#0d0d14;--panel:#171722;--line:#2b2b3a;--text:#f4f4fa;--muted:#aaaabd;--accent:#b6ff5c;--purple:#9c8cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(900px 400px at 80% -10%,#2d2456 0%,transparent 60%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:900px;margin:auto;padding:20px 15px 50px}.top{display:flex;align-items:center;gap:12px;margin:8px 0 25px}.logo{width:45px;height:45px;border-radius:15px;display:grid;place-items:center;background:var(--accent);color:#141414;font-size:23px;font-weight:900}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:800}.top h1{font-size:22px;margin:0}.hero{padding:25px 20px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(135deg,#1b1b2a,#14141c);margin-bottom:18px}.hero h2{font-size:30px;line-height:1.12;margin:0 0 12px;letter-spacing:-.04em}.hero p{color:var(--muted);margin:0}.pill{display:inline-block;border:1px solid #46662b;color:var(--accent);border-radius:99px;padding:5px 10px;font-size:12px;margin-bottom:12px}.section{margin:22px 0}.section h3{font-size:18px;margin:0 0 10px}.muted{color:var(--muted);font-size:13px}.field{display:block;font-weight:700;margin:12px 0 7px}textarea,select,input{width:100%;background:#0e0e15;color:var(--text);border:1px solid var(--line);border-radius:13px;padding:13px;font:inherit}textarea{min-height:130px;resize:vertical}select{margin-bottom:8px}.grid{display:grid;grid-template-columns:1fr;gap:12px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px}.card h4{margin:0 0 5px;font-size:16px}.card p{margin:0 0 12px;color:var(--muted);font-size:13px}.tag{display:inline-block;font-size:11px;border-radius:7px;padding:3px 7px;background:#29293a;color:#d7d2ff;margin-bottom:8px}.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:0;border-radius:12px;padding:12px 14px;font-weight:800;cursor:pointer;font-size:14px;background:var(--accent);color:#111;width:100%;margin-top:8px}.btn.secondary{background:#29293a;color:#f5f5ff;border:1px solid #414155}.btn.purple{background:var(--purple);color:#111}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.notice{border:1px solid #5a4a27;background:#211d15;color:#f5dfac;border-radius:14px;padding:13px;font-size:13px}.fine{font-size:12px;color:var(--muted)}a{color:#c7bbff}.footer{border-top:1px solid var(--line);margin-top:30px;padding-top:18px;color:var(--muted);font-size:12px}@media(min-width:650px){main{padding:30px 22px 60px}.grid{grid-template-columns:repeat(2,1fr)}.hero{padding:34px}.hero h2{font-size:38px}.top h1{font-size:25px}}
+</style>
+</head>
+<body>
+<main>
+<header class="top"><div class="logo">J</div><div><div class="eyebrow">Personal creator dashboard</div><h1>Junaid AI Video Studio</h1></div></header>
+<section class="hero"><span class="pill">ANDROID-FIRST · ₹0 WEBSITE HOSTING</span><h2>Make your next AI vlog.</h2><p>Write a prompt, then open a model demo. This free starter site is a launchpad—not a fake promise of unlimited video generation.</p></section>
+
+<section class="section">
+<h3>1. Write your prompt</h3>
+<label class="field" for="mode">Video type</label>
+<select id="mode"><option value="t2v">Text-to-video</option><option value="talk">Talking character / lip-sync</option><option value="cartoon">Cartoon / animated scene</option></select>
+<label class="field" for="prompt">Prompt / dialogue</label>
+<textarea id="prompt" placeholder="Example: A friendly muscular alien lands near Charminar and says in Hyderabadi Urdu: 'Arre miyaan, Mars se seedha Hyderabad aaya main!' Vertical 9:16 vlog, natural gestures, clear face, cinematic lighting."></textarea>
+<div class="actions"><button class="btn" id="copy">Copy prompt</button><button class="btn secondary" id="sample">Use sample</button></div>
+<p class="fine" id="status" aria-live="polite">Tip: For lip-sync, upload/use a clear front-facing portrait and provide an audio clip in the selected demo if supported.</p>
+</section>
+
+<section class="section">
+<h3>2. Open a generation demo</h3>
+<p class="muted">These links open separate services. Their availability, queues, account requirements, credits and watermarks can change. The prompt is not automatically transferred—copy it first.</p>
+<div class="grid">
+<article class="card"><span class="tag">TEXT → VIDEO</span><h4>Wan video demos</h4><p>Open community-hosted demos for Wan models. Wan is open-source, but running it needs GPU compute; public demos may be queued or limited.</p><a class="btn" href="https://huggingface.co/spaces?search=Wan2.1%20text%20to%20video" target="_blank" rel="noopener">Find Wan demos</a><a class="btn secondary" href="https://github.com/Wan-Video/Wan2.1" target="_blank" rel="noopener">Official model code</a></article>
+<article class="card"><span class="tag">TALKING PORTRAIT</span><h4>LivePortrait demos</h4><p>Animate a portrait using a driving video. It is not, by itself, a full text-to-speech service; results depend on the demo.</p><a class="btn purple" href="https://huggingface.co/spaces?search=LivePortrait" target="_blank" rel="noopener">Find LivePortrait demos</a><a class="btn secondary" href="https://github.com/KwaiVGI/LivePortrait" target="_blank" rel="noopener">Official model code</a></article>
+<article class="card"><span class="tag">LIP-SYNC</span><h4>MuseTalk demos</h4><p>Audio-driven lip-sync model. Usually needs a face video/image and an audio file; free public demo limits can vary.</p><a class="btn purple" href="https://huggingface.co/spaces?search=MuseTalk" target="_blank" rel="noopener">Find MuseTalk demos</a><a class="btn secondary" href="https://github.com/TMElyralab/MuseTalk" target="_blank" rel="noopener">Official model code</a></article>
+<article class="card"><span class="tag">CARTOON / ANIMATION</span><h4>Animation demos</h4><p>Try community demos for animated images and stylized video. Not every demo supports spoken audio or cartoon consistency.</p><a class="btn" href="https://huggingface.co/spaces?search=AI%20image%20to%20video" target="_blank" rel="noopener">Find image-to-video demos</a><a class="btn secondary" href="https://huggingface.co/spaces" target="_blank" rel="noopener">Browse all Spaces</a></article>
+</div>
+</section>
+
+<section class="section">
+<h3>3. Free hosting plan</h3>
+<div class="card"><h4>GitHub Pages (static website)</h4><p>Hosting this dashboard can cost ₹0. It cannot run a large AI video model itself; generation happens in the external demo you open.</p><a class="btn" href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages setup</a><a class="btn secondary" href="https://docs.github.com/en/pages/quickstart" target="_blank" rel="noopener">Official deployment guide</a></div>
+</section>
+
+<section class="section">
+<div class="notice"><strong>Reality check:</strong> There is no verified way to provide text-to-video + cartoon generation + talking-avatar lip-sync, all unlimited, from a ₹0 website hosted on an Android phone. Free GPU services have quotas/queues, and hosted APIs have rate limits or charges. Never paste an API key into this public HTML file.</div>
+</section>
+<footer class="footer">Personal-use starter. No account system, file storage, or AI inference is included in this static version. External services have their own terms and privacy rules.</footer>
+</main>
+<script>
+const promptBox=document.getElementById('prompt');
+const samples={
+t2v:"Vertical 9:16 vlog video. A friendly muscular alien lands in a small UFO near Charminar, Hyderabad. He looks at the camera, smiles and says in casual Hyderabadi Urdu: “Arre miyaan, Mars se seedha Hyderabad aaya main!” Natural body movement, lively street ambience, realistic cinematic lighting, no subtitles or on-screen text.",
+talk:"A consistent friendly alien character facing the camera, shoulders and face clearly visible. Spoken dialogue in Hyderabadi Urdu: “Kya bolte miyaan, aaj apun pura Hyderabad ghoomne wala!” Natural expressions, realistic mouth movement matched to the supplied audio, vertical 9:16 framing.",
+cartoon:"High-quality 3D cartoon vlog, a funny muscular alien wearing a simple hoodie explores Charminar in Hyderabad, warm expressive face, smooth animation, colorful cinematic lighting, vertical 9:16. Dialogue: “Kya bolte miyaan, Hyderabad ka scene ek number hai!”"
+};
+document.getElementById('sample').addEventListener('click',()=>{promptBox.value=samples[document.getElementById('mode').value];document.getElementById('status').textContent='Sample prompt loaded. Copy it before opening a demo.';});
+document.getElementById('mode').addEventListener('change',()=>{if(!promptBox.value.trim())promptBox.value=samples[document.getElementById('mode').value];});
+document.getElementById('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(promptBox.value);document.getElementById('status').textContent='Prompt copied. Open a demo and paste it there.';}catch(e){promptBox.select();document.getElementById('status').textContent='Select the prompt and copy it manually.';}});
+</script>
+</body>
+</html>
